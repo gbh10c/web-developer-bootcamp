@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+
+<body>
+  <h1>Forms Demo</h1>
+  <button>OUTSIDE FORM</button>
+  <hr>
+  <form action="/tacos">
+    <!-- Type="button" is uncommon in HTML, but may show up in Javascript -->
+    <button type="button">PLEASE DO NOT SUBMIT THE FORM</button>
+    <p>
+      <label for="username">Enter a Username:</label>
+      <input type="text" id="username" placeholder="username" name="username">
+    </p>
+    <p>
+      <label for="password">Enter a Password:</label>
+      <input type="password" id="password" placeholder="enter password" name="password">
+    </p>
+    <button>IN THE MIDDLE</button>
+    <p>
+      <label for="color">Choose a Color:</label>
+      <input type="color" id="color" name="color">
+    </p>
+
+    <!-- Less common way to add a label -->
+    <p>
+      <label>
+        Choose a Number:
+        <input type="number" id="number" placeholder="enter a number" name="number" min="0" max="500" step="2"
+          value="250">
+      </label>
+    </p>
+    <button>Submit</button>
+    <!-- Works, but syntax not as good as <button>  -->
+    <input type="submit">
+  </form>
+  <hr>
+  <h2>Hijacking Searches</h2>
+  <h3>Search Reddit</h3>
+  <form action="https://www.reddit.com/search">
+    <input type="text" name="q">
+    <button>Search Reddit</button>
+  </form>
+  <h3>Search Google</h3>
+  <form action="https://www.google.com/search">
+    <input type="text" name="q">
+    <button>Search Google</button>
+  </form>
+
+  <h3>Search YouTube</h3>
+  <form action="https://www.youtube.com/results">
+    <input type="text" name="search_query">
+    <!-- without button, form will still submit with "enter" -->
+    <button>Search YouTube</button>
+  </form>
+
+  <h2>More Inputs</h2>
+  <form action="/beer">
+    <input type="checkbox" name="agree_tos" id="agree" checked>
+    <label for="agree">I agree to everything</label>
+    <p>
+      <label for="pale_ale">Pale Ale:</label>
+      <input type="radio" name="beer" id="pale_ale" value="pale_ale">
+      <label for="IPA">IPA:</label>
+      <input type="radio" name="beer" id="IPA" value="IPA">
+      <label for="DIPA">Double IPA:</label>
+      <input type="radio" name="beer" id="DIPA" value="DIPA">
+    </p>
+    <p>
+      <label for="meal">Please select a meal</label>
+      <select name="meal" id="meal">
+        <option value="">Please Choose One</option>
+        <option value="fish">Fish</option>
+        <option value="veg">Vegetarian</option>
+        <option value="steak">Steak</option>
+      </select>
+    </p>
+    <p>
+      <label for="cheese">Amout of Cheese</label>
+      <input type="range" id="cheese" min="0" max="100" step="5" value="85" name="cheese_level">
+    </p>
+    <p>
+      <label for="">Any Special Requests?</label>
+      <br>
+      <textarea name="requests" id="requests" cols="30" rows="10" placeholder="Type something here"></textarea>
+    </p>
+    <button>Submit</button>
+  </form>
+
+
+</body>
+
+</html>
