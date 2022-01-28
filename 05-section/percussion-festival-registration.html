@@ -11,6 +11,39 @@
 <body>
   <h1>Percussion Festival Registration Form</h1>
 
+  <form action="/dummy">
+    <div>
+      <label for="first">Director First Name:</label>
+      <input type="text" name="first" id="first" required>
+      <label for="last">Director Last Name:</label>
+      <input type="text" name="last" id="last" required>
+    </div>
+    <h2>Select a Race:</h2>
+    <div>
+      <input type="radio" id="trio" name="ensemble" value="trio">
+      <label for="trio">Trio</label><br>
+      <input type="radio" id="quartet" name="ensemble" value="quartet">
+      <label for="quartet">Quartet</label><br>
+      <input type="radio" id="quintet" name="ensemble" value="quintet">
+      <label for="quintet">Quintet</label><br>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required>
+    </div>
+    <div>
+      <label for="age">Select Age Group</label>
+      <select name="age" id="age">
+        <option value="middle">Middle School</option>
+        <option value="high">High School</option>
+        <option value="college">College</option>
+      </select>
+    </div>
+    <button>Register!</button>
+  </form>
+
 </body>
 
 </html>
