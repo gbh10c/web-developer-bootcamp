@@ -1,18 +1,14 @@
 section {
     width: 80%;
     height: 800px;
-    /* background-image: url("https://images.unsplash.com/photo-1564442038901-4f9a19d3d456?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1227&q=80");
+    /* background-image: url("https://images.unsplash.com/photo-1643090933524-b75c1faf0f74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
     background-size: cover;
     background-position: top; */
-    background: center/cover url("https://images.unsplash.com/photo-1564442038901-4f9a19d3d456?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1227&q=80");
+    background: url("https://images.unsplash.com/photo-1643090933524-b75c1faf0f74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80") center/cover; /*position/size*/
     margin: 0 auto;
 }
 
 h1 {
-    font-size: 150px;
-    text-align:center;
-    text-shadow: black -6px 6px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: lighter;
-    color:white;
+    font-size: 100px;
+    color: white;
 }

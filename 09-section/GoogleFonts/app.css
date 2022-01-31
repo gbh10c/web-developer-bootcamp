@@ -1,10 +1,11 @@
 body {
-    font-family: Montserrat, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 main {
     width: 60%;
     margin: 0 auto;
+    font-weight: 400;
 }
 
 h1 {
@@ -17,6 +18,5 @@ h1 + h2 {
 }
 
 h1,h2,h3 {
-    font-family: Roboto, sans-serif;
-    font-weight: 100;
+    font-family: 'Raleway Dots', cursive;
 }
