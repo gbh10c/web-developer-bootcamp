@@ -15,7 +15,7 @@
 <body>
   <div class="container">
     <h1 class="display-1 text-center text-primary">Bootstrap Playground</h1>
-    <h2 class="display-4">Buttons</h2>
+    <h2 class="display-4">Buttons <span class="badge rounded-pill bg-warning">New</span></h2>
     <button type="button" class="btn btn-primary">Primary</button>
     <button type="button" class="btn btn-success">Success</button>
     <button type="button" class="btn btn-info">Info</button>
@@ -24,6 +24,23 @@
     <button type="button" class="btn btn-outline-info btn-lg">Info Outline</button>
     <button type="button" class="btn btn-secondary btn-sm">Secondary</button>
     <button type="button" class="btn btn-success" disabled>Success Disabled</button>
+    <button type="button" class="btn btn-outline-primary">Updates <span class="badge bg-danger">9</span></button>
+    <h3>Button Groups</h3>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button class="btn btn-danger">Two</button>
+      <button class="btn btn-danger">One</button>
+      <button class="btn btn-danger">Three</button>
+    </div>
+    <h3>Alerts</h3>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </svg>
+      <!-- <h4 class="alert-heading">Oh No!</h4> -->
+      Danger! You are about to end the world as we know it!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      </button>
+    </div>
     <h2 class="display-4">Typography</h2>
     <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste eveniet deserunt eum nostrum harum
       possimus porro
