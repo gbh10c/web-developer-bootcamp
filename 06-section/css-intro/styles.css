@@ -1,6 +1,6 @@
 h2 {
-  color: teal;
-  background-color: plum;
+  color: #5FCFFC;
+  background-color: rgb(109, 119, 95);
 }
 
 button {
@@ -12,4 +12,9 @@ p {
   color: olive;
   /* 'Background' can include images - it's more powerful than background-color */
   background: orange;
+}
+
+body {
+  /* Three digits represents double R, G, and B */
+  background-color: #c53;
 }
