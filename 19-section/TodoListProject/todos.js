@@ -1,25 +1,43 @@
-let input = prompt('what would you like to do?');
-const todos = ['Collect Chicken Eggs', 'Clean Litter Box'];
-while (input !== 'quit' && input !== 'q') {
-    if (input === 'list') {
-        console.log('*****************')
-        for (let i = 0; i < todos.length; i++) {
-            console.log(`${i}: ${todos[i]}`);
+//array of stuff
+const list = [];
+
+//prompt
+let option = prompt('What do you want to do?  "add" | "list" | "delete" | "quit"');
+
+while (option !== 'quit') {
+    if (option === 'add') {
+        let item = prompt('What event would you like to schedule?')
+        list.push(item);
+        console.log(`Added ${item} to the list!`);
+    } else if (option === 'list') {
+        console.log('**********');
+        for (let event of list) {
+            console.log(`${list.indexOf(event)}: ${event}`)
         }
-        console.log('*****************')
-    } else if (input === 'new') {
-        const newTodo = prompt('Ok, what is the new todo?');
-        todos.push(newTodo);
-        console.log(`${newTodo} added to the list!`)
-    } else if (input === 'delete') {
-        const index = parseInt(prompt('Ok, enter an index to delete:'));
-        if (!Number.isNaN(index)) {
-            const deleted = todos.splice(index, 1);
-            console.log(`Ok, deleted ${deleted[0]}`);
+        console.log('**********');
+    // "Delete" section utilizing user text.
+    // } else if (option === 'delete') {
+    //     let deletedItem = prompt('Which event would you like to delete?')
+    //     if (!list.includes(deletedItem)) {
+    //         alert('That event is not located in this list.');
+    //     } else {
+    //         let deleteIndex = list.indexOf(deletedItem);
+    //         list.splice(deleteIndex, 1);
+    //         console.log(`Deleted: ${deletedItem}`);
+    //     }
+    // "Delete" section utilizing index number.
+    } else if (option === 'delete') {
+        let deletedNumber = parseInt(prompt('Which number event would you like to delete?'));
+        if (Number.isNaN(deletedNumber) || !list.includes(list[deletedNumber])) {
+            alert('Invalid option!!!');
         } else {
-            console.log('Unknown index')
+            const deleted = list.splice(deletedNumber, 1);
+            console.log(`Deleted: ${deleted}`);
         }
+    } else {
+        alert('Invalid option!!!');
     }
-    input = prompt('what would you like to do?')
+    option = prompt('What do you want to do?  "add" | "list" | "delete" | "quit"')
 }
-console.log('OK QUIT THE APP!')
+
+console.log('Thanks for using the ToDo program!');

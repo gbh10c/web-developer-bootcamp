@@ -14,9 +14,9 @@ const testScores = {
 // USING FOR...IN TO ITERATE AN OBJECT
 // ===================================
 
-for (let person in testScores) {
-    console.log(`${person} scored ${testScores[person]}`);
-}
+// for(let person in testScores) {
+//     console.log(`${person} scored ${testScores[person]}`);
+// }
 
 // ==============================================
 // Using Object methods to iterate
@@ -25,8 +25,7 @@ for (let person in testScores) {
 
 let total = 0;
 let scores = Object.values(testScores);
-for (let score of scores) {
+for(let score of scores) {
     total += score;
 }
-console.log(total / scores.length)
-
+console.log(`The average test score is ${total/scores.length}`)
