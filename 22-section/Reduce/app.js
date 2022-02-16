@@ -2,18 +2,17 @@ const prices = [9.99, 1.50, 19.99, 49.99, 30.50];
 
 // let total = 0;
 // for (let price of prices) {
-//     total += price
+//     total += price;
 // }
-// console.log(total)
 
-// const total = prices.reduce((total, price) => {
+// let sum = prices.reduce((total, price) => {
 //     return total + price
 // })
 
-const total = prices.reduce((total, price) => total + price)
+let sum = prices.reduce((total, price) => total + price);
 
-const minPrice = prices.reduce((min, price) => {
-    if (price < min) {
+let minimum = prices.reduce((min, price) => {
+    if(price < min) {
         return price;
     }
     return min;
@@ -67,15 +66,25 @@ const movies = [
     }
 ]
 
-const highestRated = movies.reduce((bestMovie, currMovie) => {
-    if (currMovie.score > bestMovie.score) {
-        return currMovie;
+let highestRated = movies.reduce((bestMovie, currentMovie) => {
+    if (currentMovie.score > bestMovie.score) {
+        return currentMovie;
     }
     return bestMovie;
 })
 
+let oldestMovie = movies.reduce((oldMovie, currentMovie) => {
+    if (currentMovie.year < oldMovie.year) {
+        return currentMovie;
+    }
+    return oldMovie;
+})
 
 // We can provide an initial value as the 2nd arg to reduce:
 const evens = [2, 4, 6, 8];
-evens.reduce((sum, num) => sum + num) //20
-evens.reduce((sum, num) => sum + num, 100) //120
+
+// let sumEvens = evens.reduce((total, num) => {
+//     return total + num
+// }, 100)
+
+let sumEvens = evens.reduce((total, num) => total + num, 100);
