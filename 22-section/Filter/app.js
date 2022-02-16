@@ -1,7 +1,19 @@
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-numbers.filter(n => {
-    return n < 10
+const evens = numbers.filter(num => {
+    return num % 2 === 0;
+})
+
+const odds = numbers.filter(num => {
+    return num % 2 === 1;
+})
+
+const largeNums = numbers.filter(num => {
+    return num > 10;
+})
+
+const smallNums = numbers.filter(num => {
+    return num <= 10;
 })
 
 
@@ -51,15 +63,19 @@ const movies = [
         score: 90,
         year: 1979
     }
+
 ]
 
+const goodMovies = movies.filter(m => m.score > 80)
+const goodTitles = goodMovies.map(m => m.title)
 
+const bestTitles = movies.filter(m => m.score > 80).map(m => m.title)
 
-const badMovies = movies.filter(m => m.score < 70)
+// Also possible to indent the methods under the array
+// const bestTitles = movies
+//     .filter(m => m.score > 80)
+//     .map(m => m.title)
+
+const badMovies = movies.filter(m => m.score < 80)
 
 const recentMovies = movies.filter(m => m.year > 2000)
-
-// const goodMovies = movies.filter(m => m.score > 80)
-// const goodTitles = goodMovies.map(m => m.title)
-
-movies.filter(m => m.score > 80).map(m => m.title);
