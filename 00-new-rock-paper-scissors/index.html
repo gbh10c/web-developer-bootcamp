@@ -6,42 +6,98 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/2ebd0fe158.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <h1>Rock, Paper, Scissors</h1>
-
-  <section id="game">
-    <div class="scoreboard">
-      <h2 id="gameQuestion">How many games to win? <span id="selectedGames"></span>
-        <select name="" id="gameLength">
-          <option value="">-</option>
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="7">7</option>
-          <option value="9">9</option>
-        </select>
-      </h2>
-      <h2 id="announcement" hidden></h2>
-      <h3 id="again" hidden>Would you like to play again? <button id="yesBtn">YES</button> <button
-          id="noBtn">NO</button></h3>
-      <h3>Player: <span id="playerTotal">0</span> | Computer: <span id="computerTotal">0</span></h3>
+  
+  <div class="column is-half is-offset-one-quarter">
+    <div class="block">
+      <div class="container is-offset-one-half">
+        <h1 class="title is-1 is-offset-one-quarter">Rock, Paper, Scissors</h1>
+      </div>
     </div>
 
-    <div class="result">
-      <h3><span id="result"></span></h3>
+    <div class="box">
+      <div class="block" id="activeGame">
+        <div class="scoreboard content is-large">
+          <h3>Player: <span id="playerTotal">0</span> | Computer: <span id="computerTotal">0</span></h3>
+        </div>
+        <div class="block" id="gameLength">
+          <div class="notification is-link is-light">
+            <h2 id="gameQuestion">How many games will determine the winner? <span id="selectedGames"></span>
+              <select class="select" name="" id="gameList">
+                <option value="">-</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="9">9</option>
+              </select>
+            </h2>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="content">
+            <h2 id="announcement" hidden></h2>
+          </div>
+        </div>
+
+        <div class="notification is-warning is-light" id="again" hidden>
+          <h3>Would you like to play again?
+            <div class="buttons has-addons is-centered">
+              <button value="yes" class="continueBtns button is-medium is-white" disabled>
+                <span class="icon is-medium">
+                  <i class="fa-regular fa-hand-back-fist"></i>
+                </span>
+                <span>YES</span>
+              </button>
+              <button value="no" class="continueBtns button is-medium is-white" disabled>
+                <span class="icon is-medium">
+                  <i class="fa-regular fa-hand"></i>
+                </span>
+                <span>NO</span>
+              </button>
+            </div>
+          </h3>
+        </div>
+
+      </div>
+
+      <div class="block" id="thanks" hidden>
+        <div class="notification is-success is-light">
+          <h2>Thanks for playing Rock, Paper, Scissors!</h2>
+        </div>
+      </div>
     </div>
 
-    <div class="buttons">
-      <button id="rockBtn" value="Rock" class="btn" disabled>ROCK</button>
-      <button id="paperBtn" value="Paper" class="btn" disabled>PAPER</button>
-      <button id="scissorsBtn" value="Scissors" class="btn" disabled>SCISSORS</button>
+    <div class="block">
+      <div class="buttons has-addons is-centered">
+        <button id="rockBtn" value="Rock" class="rpsBtn button is-large is-outlined is-success" disabled>
+          <span class="icon is-medium">
+            <i class="fa-regular fa-hand-back-fist"></i>
+          </span>
+          <span>ROCK</span>
+        </button>
+        <button id="paperBtn" value="Paper" class="rpsBtn button is-large is-outlined is-link" disabled>
+          <span class="icon is-medium">
+            <i class="fa-regular fa-hand"></i>
+          </span>
+          <span>PAPER</span>
+        </button>
+        <button id="scissorsBtn" value="Scissors" class="rpsBtn button is-large is-outlined is-danger" disabled>
+          <span class="icon is-medium">
+            <i class="fa-regular fa-hand-scissors"></i>
+          </span>
+          <span>SCISSORS</span>
+        </button>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section id="thanks" hidden>
-    <h2>Thanks for playing Rock, Paper, Scissors!</h2>
-  </section>
+
+  </div>
 
   <script src="app.js"></script>
 </body>

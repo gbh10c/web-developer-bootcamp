@@ -1,16 +1,14 @@
 const gameQuestion = document.querySelector('#gameQuestion');
 const gameLength = document.querySelector('#gameLength');
+const gameList = document.querySelector('#gameList');
 const selectedGames = document.querySelector('#selectedGames');
-const rockButton = document.querySelector('#rockBtn');
-const paperButton = document.querySelector('#paperBtn');
-const scissorsButton = document.querySelector('#scissorsBtn');
+const rpsBtn = document.querySelectorAll('.rpsBtn');
 const announcement = document.querySelector('#announcement');
 const playerTotal = document.querySelector('#playerTotal');
 const computerTotal = document.querySelector('#computerTotal');
 const again = document.querySelector('#again');
-const yesBtn = document.querySelector('#yesBtn');
-const noBtn = document.querySelector('#noBtn');
-const game = document.querySelector('#game');
+const continueBtns = document.querySelectorAll('.continueBtns');
+const activeGame = document.querySelector('#activeGame');
 const thanks = document.querySelector('#thanks');
 
 
@@ -20,47 +18,28 @@ let playerScore = 0;
 let computerScore = 0;
 let numOfGames = null;
 
-gameLength.addEventListener('change', () => {
+gameLength.addEventListener('change', (e) => {
   gameLength.hidden = true;
-  numOfGames = parseInt(gameLength.value);
+  announcement.innerText = 'Select your option below!';
+  announcement.hidden = false;
+  numOfGames = parseInt(e.target.value);
   selectedGames.innerText = numOfGames;
-  rockBtn.disabled = false;
-  paperBtn.disabled = false;
-  scissorsBtn.disabled = false;
+  for (const option of rpsBtn) {
+    option.disabled = false;
+  }
 })
 
-rockBtn.addEventListener('click', () => {
-  gameQuestion.hidden = true;
-  playerChoice = rockBtn.value;
-  computerChoice = getComputerChoice();
-  matchResult(playerChoice, computerChoice);
-  playerTotal.innerText = playerScore;
-  computerTotal.innerText = computerScore;
-  announcement.hidden = false;
-  keepScore(playerScore, computerScore);
-});
-
-paperBtn.addEventListener('click', () => {
-  gameQuestion.hidden = true;
-  playerChoice = paperBtn.value;
-  computerChoice = getComputerChoice();
-  matchResult(playerChoice, computerChoice);
-  playerTotal.innerText = playerScore;
-  computerTotal.innerText = computerScore;
-  announcement.hidden = false;
-  keepScore(playerScore, computerScore);
-});
-
-scissorsBtn.addEventListener('click', () => {
-  gameQuestion.hidden = true;
-  playerChoice = scissorsBtn.value;
-  computerChoice = getComputerChoice();
-  matchResult(playerChoice, computerChoice);
-  playerTotal.innerText = playerScore;
-  computerTotal.innerText = computerScore;
-  announcement.hidden = false;
-  keepScore(playerScore, computerScore);
-});
+for (const btn of rpsBtn) {
+  btn.addEventListener('click', (e) => {
+    playerChoice = e.currentTarget.value;
+    gameQuestion.hidden = true;
+    computerChoice = getComputerChoice();
+    matchResult(playerChoice, computerChoice);
+    playerTotal.innerText = playerScore;
+    computerTotal.innerText = computerScore;
+    keepScore(playerScore, computerScore);
+  });
+}
 
 function getComputerChoice() {
   const computerOptions = ['Rock', 'Paper', 'Scissors'];
@@ -73,10 +52,10 @@ function matchResult(playerChoice, computerChoice) {
     return;
   } else if ((playerChoice === 'Rock' && computerChoice === 'Scissors') || (playerChoice === 'Paper' && computerChoice === 'Rock') || (playerChoice === 'Scissors' && computerChoice === 'Paper')) {
     playerScore++;
-    announcement.innerText = `${playerChoice} beats ${computerChoice} - Player +1`;
+    announcement.innerText = `${playerChoice} beats ${computerChoice}!!! 1 point for you!`;
   } else {
     computerScore++;
-    announcement.innerText = `${computerChoice} beats ${playerChoice} - Computer +1`;
+    announcement.innerText = `${computerChoice} beats ${playerChoice} :( Computer earns 1 point.`;
   }
 }
 
@@ -92,24 +71,36 @@ function keepScore(playerScore, computerScore) {
 
 function playAgain() {
   again.hidden = false;
-  rockButton.disabled = true;
-  paperButton.disabled = true;
-  scissorsButton.disabled = true;
-  yesBtn.addEventListener('click', () => {
-    again.hidden = true;
-    announcement.hidden = true;
-    selectedGames.innerText = '';
-    gameQuestion.hidden = false;
-    gameLength.selectedIndex = 0;
-    gameLength.hidden = false;
-    playerScore = 0;
-    computerScore = 0;
-    numOfGames = null;
-    playerTotal.innerText = playerScore;
-    computerTotal.innerText = computerScore;
-  });
-  noBtn.addEventListener('click', () => {
-    game.hidden = true;
-    thanks.hidden = false;
-  })
+  for (const option of rpsBtn) {
+    option.disabled = true;
+  }
+  for (const selection of continueBtns) {
+    selection.disabled = false;
+    selection.addEventListener('click', (e) => {
+      if (e.currentTarget.value === 'yes') {
+        reset();
+      } else {
+        gameOver();
+      }
+    });
+  }
+}
+
+function reset() {
+  again.hidden = true;
+  announcement.hidden = true;
+  selectedGames.innerText = '';
+  gameQuestion.hidden = false;
+  gameList.selectedIndex = 0;
+  gameLength.hidden = false;
+  playerScore = 0;
+  computerScore = 0;
+  numOfGames = null;
+  playerTotal.innerText = playerScore;
+  computerTotal.innerText = computerScore;
+}
+
+function gameOver() {
+  thanks.hidden = false;
+  activeGame.hidden = true;
 }
