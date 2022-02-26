@@ -60,24 +60,47 @@ const fakeRequestPromise = (url) => {
 //      console.log('OH NO, ERROR!')
 //     })
 
+// fakeRequestPromise('yelp.com/api/coffee/page1')
+//     .then(() => {        
+//         console.log('IT WORKED! (P1)')
+//         fakeRequestPromise('yelp.com/api/coffee/page2')
+//             .then(() => {                
+//                 console.log('IT WORKED! (P2)')
+//                 fakeRequestPromise('yelp.com/api/coffee/page3')
+//                     .then(() => {
+//                         console.log('IT WORKED! (P3)')
+//                     })
+//                     .catch(() => {
+//                         console.log('OH NO, ERROR! (P3)')
+//                     })
+//             })
+//             .catch(() => {                
+//                 console.log('OH NO, ERROR! (P2)')
+//             })
+//     })
+//     .catch(() => {    
+//         console.log('OH NO, ERROR! (P1)')
+//     })
+
+
+// PROMISE CHAINING
+// PROMISES WITH CHAINED THEN STATEMENTS AND A SINGLE CATCH, DATA PASSED IN AS WELL
 fakeRequestPromise('yelp.com/api/coffee/page1')
-    .then(() => {        
+    .then((data) => {
         console.log('IT WORKED! (P1)')
-        fakeRequestPromise('yelp.com/api/coffee/page2')
-            .then(() => {                
-                console.log('IT WORKED! (P2)')
-                fakeRequestPromise('yelp.com/api/coffee/page3')
-                    .then(() => {
-                        console.log('IT WORKED! (P3)')
-                    })
-                    .catch(() => {
-                        console.log('OH NO, ERROR! (P3)')
-                    })
-            })
-            .catch(() => {                
-                console.log('OH NO, ERROR! (P2)')
-            })
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/coffee/page2')
     })
-    .catch(() => {    
-        console.log('OH NO, ERROR! (P1)')
+    .then((data) => {
+        console.log('IT WORKED! (P2)')
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/coffee/page3')
+    })
+    .then((data) => {
+        console.log('IT WORKED! (P3)')
+        console.log(data)
+    })
+    .catch((err) => {
+        console.log('OH NO, A REQUEST FAILED!')
+        console.log(err)
     })
