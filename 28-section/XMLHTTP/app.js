@@ -2,15 +2,15 @@
 const req = new XMLHttpRequest();
 
 req.onload = function() {
-    console.log("ALL DONE WITH REQUEST!!!")
-    const data = JSON.parse(this.responseText)
-    console.log(data.ticker.price)
+    console.log("IT LOADED!!!");
+    const data = JSON.parse(this.responseText);
+    console.log(data.name, data.height);
 }
 
 req.onerror = function () {
-    console.log("ERROR!!!")
-    console.log(this)
+    console.log("ERROR!!!");
+    console.log(this);
 }
 
-req.open('GET', 'https://api.cryptonator.com/api/ticker/btc-usd')
-req.send();
+req.open("GET", "https://swapi.dev/api/people/1/");
+req.send()

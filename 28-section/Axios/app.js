@@ -1,32 +1,22 @@
-// fetch('https://api.cryptonator.com/api/ticker/btc-usd')
-//     .then(res => {
-//         console.log("RESPONSE, WAITING TO PARSE...", res)
-//         return res.json()
-//     })
-//     .then(data => {
-//         console.log("DATA PARSED...")
-//         console.log(data.ticker.price)
-//     })
-//     .catch(e => {
-//         console.log("OH NO! ERROR!", e)
-//     })
-
-// axios.get('https://api.tvmaze.com/search/shows?q=girls')
-// .then(res => {
-//     console.log(res.data.length)
+// axios.get("https://swapi.dev/api/people/1").then(res => {
+//     console.log("RESPONSE: ", res);
 // })
 // .catch(err => {
-//     console.log("ERROR:", err)
+//     console.log("ERROR!", err);
 // })
 
-// const fetchShow = async () => {
-//     try{
-//         const res = await axios.get('https://api.tvmaze.com/search/shows?q=girls')
-//         console.log(res.data.length)
-//     } catch(err) {
-//         console.log("ERROR:", err)
+// const getStarWarsPerson = async (id) => {
+//     try {
+//         const res = await axios.get(`https://swapi.dev/api/people/${id}/`);
+//         console.log(res.data);
+//     } catch (err) {
+//         console.log("ERROR: ", err);
 //     }
-// }
+// };
+
+// getStarWarsPerson(2);
+// getStarWarsPerson(11);
+
 
 
 // REQUEST HEADERS WITH AXIOS

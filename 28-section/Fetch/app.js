@@ -1,28 +1,41 @@
 // "Promise" version
 
-// fetch('https://api.tvmaze.com/search/shows?q=girls')
-// .then(res => {
-//     console.log("RESPONSE, WAITING TO PARSE...", res)
-//     return res.json() //returns JSON data as a promise
+// fetch("https://swapi.dev/api/people/1/")
+// .then((res) => {
+//     console.log("RESOLVED", res);
+//     return res.json();
 // })
-// .then(data => {
-//     console.log("DATA PARSED!", data)
-//     console.log(data.length)
+// .then((data) => {
+//     console.log(data);
+//     return fetch("https://swapi.dev/api/people/2/")
 // })
-// .catch(err => {
-//     console.log("OH NO! ERROR", err)
+// .then((res) => {
+//     console.log("SECOND REQUEST RESOLVED!")
+//     return res.json();
 // })
+// .then((data) => {
+//     console.log(data);
+// })
+// .catch((err) => {
+//     console.log("ERROR", err);
+// })
+
+
 
 
 //"async" version; try/catch handles errors instead of .catch
 
-const fetchTvShow = async() => {
-    try{
-        const res = await fetch('https://api.tvmaze.com/search/shows?q=girls');
-        const data = await res.json()
-        console.log(data.length)
-    } catch(err){
-        console.log("SOMETHING WENT WRONG!", err)
+const loadStarWarsPeople = async () => {
+    try {
+        const res = await fetch("https://swapi.dev/api/people/1/");
+        const data = await res.json();
+        console.log(data);
+        const res2 = await fetch("https://swapi.dev/api/people/2/");
+        const data2 = await res2.json();
+        console.log(data2);
+    } catch (err) {
+        console.log("ERROR!!!", err);
     }
-    
 }
+
+loadStarWarsPeople();
