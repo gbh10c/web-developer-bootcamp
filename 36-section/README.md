@@ -1,0 +1,1 @@
+Installed MongoDB and worked through CRUD
