@@ -28,7 +28,7 @@ const seedProducts = [
   {
     name: 'Fairy Eggplant',
     price: 1.00,
-    category: 'vegetables',
+    category: 'vegetable',
   },
   {
     name: 'Organic Goddess Melon',
@@ -43,7 +43,7 @@ const seedProducts = [
   {
     name: 'Organic Celery',
     price: 1.50,
-    category: 'vegetables',
+    category: 'vegetable',
   },
   {
     name: 'Chocolate Whole Milk',
